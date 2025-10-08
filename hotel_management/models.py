@@ -20,7 +20,7 @@ class Room(models.Model):
         (3, "En mantenimiento"),
     ]
 
-    number = models.PositiveIntegerField(_("Número"))
+    number = models.CharField(_("Número"), max_length=20)
     room_type = models.ForeignKey(
         RoomType, verbose_name=_("Tipo de habitación"), on_delete=models.CASCADE
     )
