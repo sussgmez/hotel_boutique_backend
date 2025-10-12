@@ -18,16 +18,6 @@ class RoomViewSet(viewsets.ModelViewSet):
     queryset = Room.objects.all().order_by("status")
     serializer_class = RoomSerializer
 
-    def get_queryset(self):
-        queryset = super().get_queryset()
-
-        if self.request.query_params.get("number"):
-            queryset = queryset.filter(
-                number__contains=self.request.query_params.get("number")
-            )
-
-        return queryset
-
 
 class RoomTypeViewSet(viewsets.ModelViewSet):
     queryset = RoomType.objects.all()
